@@ -3,6 +3,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("io.gitlab.arturbosch.detekt")
+}
+
+apply {
+    from("../config/detekt/detekt.gradle")
 }
 
 android {
