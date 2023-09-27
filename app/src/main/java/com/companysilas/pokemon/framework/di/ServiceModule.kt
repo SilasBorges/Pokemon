@@ -10,11 +10,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 val serviceModule = module {
     factory { provideForecastApi(get()) }
     factory { provideRetrofit(get()) }
+    factory { provideOkHttpClient() }
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder().baseUrl(Constants.BASE_URL).client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create()).build()
+}
+
+fun provideOkHttpClient(): OkHttpClient {
+    return OkHttpClient().newBuilder().build()
 }
 
 fun provideForecastApi(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
