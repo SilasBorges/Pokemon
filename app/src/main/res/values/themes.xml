@@ -26,5 +26,10 @@
         <item name="android:textColor">@color/white</item>
         <item name="fontFamily">@font/roboto_bold</item>
     </style>
-    
+
+    <!-- FAB -->
+    <style name="RoundedFAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

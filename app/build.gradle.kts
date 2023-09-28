@@ -63,6 +63,9 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
 
+    //Pallete
+    implementation ("androidx.palette:palette:1.0.0")
+
     // Navigation
     val nav_version = "2.5.3"
     implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")

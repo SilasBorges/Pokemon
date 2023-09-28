@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.companysilas.core.domain.model.Pokemon
 import com.companysilas.pokemon.framework.service.ApiService
-import com.companysilas.pokemon.util.Constants
+import com.companysilas.pokemon.util.Constants.STARTING_OFFSET_INDEX
 
 class PokemonPagingSource(
     private val apiService: ApiService
@@ -12,15 +12,14 @@ class PokemonPagingSource(
 
     @Suppress("TooGenericExceptionCaught")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
-        val offSet = params.key ?: Constants.STARTING_OFFSET_INDEX
+        val offSet = params.key ?: STARTING_OFFSET_INDEX
         val loadSize = params.loadSize
         return try {
-
             val paging = apiService.pokemon(loadSize, offSet)
 
             LoadResult.Page(
                 data = paging.results,
-                prevKey = offSet - loadSize,
+                prevKey = if (offSet == STARTING_OFFSET_INDEX) null else offSet - loadSize,
                 nextKey = offSet + loadSize
             )
         } catch (exception: Exception) {
@@ -30,15 +29,7 @@ class PokemonPagingSource(
 
     @Suppress("TooGenericExceptionCaught")
     override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            val anchorPage = state.closestPageToPosition(anchorPosition)
-            anchorPage?.prevKey?.plus(LIMIT) ?: anchorPage?.nextKey?.minus(
-                LIMIT
-            )
-        }
+        return state.anchorPosition
     }
 
-    companion object {
-        private const val LIMIT = 20
-    }
 }
