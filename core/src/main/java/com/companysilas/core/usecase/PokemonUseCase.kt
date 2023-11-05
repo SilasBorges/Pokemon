@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface PokemonUseCase {
 
-    operator fun invoke(params: Params): Flow<PagingData<Pokemon>>
+    suspend operator fun invoke(params: Params): Flow<PagingData<Pokemon>>
 
     object Params
 }
@@ -18,7 +18,7 @@ interface PokemonUseCase {
 class PokemonUseCaseImpl(
     private val repository: PokemonRepository
 ) : PagingUseCase<PokemonUseCase.Params, Pokemon>(), PokemonUseCase {
-    override fun createFlowObservable(params: PokemonUseCase.Params): Flow<PagingData<Pokemon>> {
+    override suspend fun createFlowObservable(params: PokemonUseCase.Params): Flow<PagingData<Pokemon>> {
         val pagingSource = repository.getPokemon()
         return Pager(config = getPagerConfig()) {
             pagingSource

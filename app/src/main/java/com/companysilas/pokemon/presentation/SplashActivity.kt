@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.companysilas.pokemon.databinding.ActivitySplashBinding
-import com.companysilas.pokemon.presentation.pokemon.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -17,10 +16,6 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding.imageLogo.setOnClickListener {
-        //    startActivity(Intent(this, MainActivity::class.java))
-        //}
-
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -30,5 +25,4 @@ class SplashActivity : AppCompatActivity() {
     companion object {
         const val TIME_SPLASH = 1500
     }
-
 }

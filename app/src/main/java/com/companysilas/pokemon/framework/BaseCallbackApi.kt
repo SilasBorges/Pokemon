@@ -21,5 +21,4 @@ open class BaseCallbackApi<T>(private val loadingLiveData: MutableLiveData<Boole
     override fun onFailure(call: Call<T>, t: Throwable) {
         loadingLiveData.value = false
     }
-
 }

@@ -9,7 +9,7 @@ import com.companysilas.pokemon.framework.service.ApiService
 class PokemonRepositoryImpl(
     private val apiService: ApiService
 ) : PokemonRepository {
-    override fun getPokemon(): PagingSource<Int, Pokemon> {
+    override suspend fun getPokemon(): PagingSource<Int, Pokemon> {
         return PokemonPagingSource(apiService)
     }
 }

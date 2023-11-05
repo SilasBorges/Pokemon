@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MainActivity">
+
+    <ViewFlipper
+        android:id="@+id/flipper_pokemon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include_view_home_loading_state"
+            layout="@layout/include_view_home_loading_state" />
+
+        <include
+            android:id="@+id/include_view_home_success_state"
+            layout="@layout/include_view_home_success_state" />
+
+        <include
+            android:id="@+id/include_view_home_error_state"
+            layout="@layout/include_view_error" />
+
+    </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

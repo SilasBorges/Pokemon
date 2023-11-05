@@ -5,5 +5,5 @@ import com.companysilas.core.domain.model.Pokemon
 
 interface PokemonRepository {
 
-    fun getPokemon(): PagingSource<Int, Pokemon>
+   suspend fun getPokemon(): PagingSource<Int, Pokemon>
 }

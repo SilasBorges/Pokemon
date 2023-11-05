@@ -1,4 +1,4 @@
-package com.companysilas.pokemon.presentation.pokemon
+package com.companysilas.pokemon.presentation.pokemon.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter

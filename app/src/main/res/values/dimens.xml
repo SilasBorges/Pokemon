@@ -7,6 +7,7 @@
     <dimen name="text_14">14sp</dimen>
     <dimen name="text_16">16sp</dimen>
     <dimen name="text_24">24sp</dimen>
+    <dimen name="text_32">32sp</dimen>
 
     <!-- margin -->
     <dimen name="margin_1">1dp</dimen>
@@ -27,5 +28,9 @@
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_24">24dp</dimen>
 
+    <!-- width and height -->
+    <dimen name="size_130">130dp</dimen>
+    <dimen name="size_180">180dp</dimen>
+    <dimen name="size_203">203dp</dimen>
 
 </resources>

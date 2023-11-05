@@ -12,7 +12,7 @@ class PokemonViewModel(
     private val pokemonUseCase: PokemonUseCase
 ): ViewModel() {
 
-    fun pokemonPagingData(): Flow<PagingData<Pokemon>> {
+    suspend fun pokemonPagingData(): Flow<PagingData<Pokemon>> {
         return pokemonUseCase(
             PokemonUseCase.Params
         ).cachedIn(viewModelScope)

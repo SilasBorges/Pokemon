@@ -63,7 +63,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
 
-    //Pallete
+    //Palette
     implementation ("androidx.palette:palette:1.0.0")
 
     // Navigation
